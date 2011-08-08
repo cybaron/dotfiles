@@ -1,0 +1,21 @@
+escape ^Jj
+vbell off
+hardstatus alwayslastline " %`%-w%{=b bw}%n %t%{-}%+w"
+startup_message off
+autodetach on
+defscrollback 10000
+defutf8 on
+bind ^k kill
+bind l windowlist
+
+# vim -> screen past
+bind ] exec !!! vim-yankring
+
+# screen -> vim copy
+bufferfile $HOME/.screen_paste_buffer
+bindkey -m ^M  eval 'stuff \015' writebuf '!vim-yankring $HOME/.screen_paste_buffer'
+bindkey -m ' ' eval 'stuff \040' writebuf '!vim-yankring $HOME/.screen_paste_buffer'
+bindkey -m W   eval 'stuff W'    writebuf '!vim-yankring $HOME/.screen_paste_buffer'
+bindkey -m Y   eval 'stuff Y'    writebuf '!vim-yankring $HOME/.screen_paste_buffer'
+bindkey -m y   eval 'stuff y'    writebuf '!vim-yankring $HOME/.screen_paste_buffer'
+

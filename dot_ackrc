@@ -1,0 +1,4 @@
+--group
+--color
+--pager=less -r -e
+--type-add=perl=.tmpl,.t

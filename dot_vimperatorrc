@@ -1,0 +1,129 @@
+"" メニューバー表示
+set guioptions=bTm
+
+"" exモード時の補完候補がTabキーを押さなくても自動的に表示
+set wildoptions=auto
+
+"" tabopenコマンドで補完する候補と順番
+set complete=bsl
+
+"" 自動でテキストエリアにフォーカスしない
+set focuscontent
+
+"" ウィンドウサイズを変更するようなページを開く際は新しいウィンドウで開く
+set popups=resized
+
+
+"" .vimperatorrcを再読み込み
+map ,s :so ~/.vimperatorrc<CR>
+
+"" 検索での大文字小文字を無視
+set ic
+
+"j/kの移動量を5倍に
+map j 5<C-e>
+map k 5<C-y>
+
+"<A-Left>/<A-Right>かh/lでタブ移動
+map <A-Left> <C-p>
+map <A-Right> <C-n>
+map h <C-p>
+map l <C-n>
+
+"""" plugin """"
+
+"" twitter.js用のキーマップ
+map ,t :twitter<Space>
+map ,T :twitter!<Space>
+map ,@ :twitter!@<CR>
+map ,m,s :so<Space>$RUNTIME/plugin/multi_requester.js
+
+javascript <<EOF
+/* DEFAULT SITES */
+liberator.globalVariables.multi_requester_default_sites = "alc,goo,favotter-new,twitter-search-pcod-no-jp,search-twitter,wikipedia-jp"
+
+/* SITE_INFO */
+liberator.globalVariables.multi_requester_siteinfo = [
+    {
+        name:           'favotter-new',
+        description:    'favotter newest',
+        url:            'http://favotter.matope.com/user.php?user=%s',
+        xpath:          '//div[@class="hentry"]',
+    },
+    {
+        name:           'twitter-search-pcod-no-jp',
+        description:    'twitter search(yats)',
+        url:            'http://pcod.no-ip.org/yats/search?query=%s',
+        xpath:          '//li[@class="hentry"]',
+    },
+    {
+        name:           'wikipedia-jp',
+        description:    'wikipedia(japanese)',
+        url:            'http://ja.wikipedia.org/wiki/%s',
+        xpath:          'id("bodyContent")',
+    },
+    {
+        name:           'search-twitter',
+        description:    'twitter search(search.twitter.com)',
+        url:            'http://search.twitter.com/search?q=%s',
+        xpath:          'id("results")/ul/li',
+    },
+];
+
+/* KEY MAPPING */
+liberator.globalVariables.multi_requester_mappings = [
+  [',mt', 'twitter-search-pcod-no-jp'],
+  [',Mt', 'twitter-search-pcod-no-jp', '!'],
+  [',mT', 'twitter-search-pcod-no-jp',    , '["cybaron"]'],
+  [',MT', 'twitter-search-pcod-no-jp', '!', '["cybaron"]'],
+  [',mf', 'favotter-new'],
+  [',Mf', 'favotter-new', '!'],
+  [',mF', 'favotter-new',    ,'["cybaron"]'],
+  [',MF', 'favotter-new', '!', '["cybaron"]'],
+  [',ma', 'alc'],
+  [',Ma', 'alc', '!'],
+  [',mg', 'goo'],
+  [',Mg', 'goo', '!'],
+  [',mw', 'wikipedia-jp'],
+  [',Mw', 'wikipedia-jp', '!']
+];
+EOF
+
+
+"" copy.js
+javascript <<EOF
+liberator.globalVariables.copy_templates = [
+{ label: 'bitURL', value: '%bitURL%', custom: function() { return util.httpGet('http://bit.ly/api?url=' + encodeURIComponent(buffer.URL)).responseText;} },
+{ label: 'titleAndURL',    value: '"%TITLE%" %URL%' },
+{ label: 'title',          value: '%TITLE%' },
+{ label: 'tDiary',         value: '{{a \'%TITLE%|%URL%\'}}' }
+];
+EOF
+
+nmap ,cb :copy<Space>bitURL<CR>
+nmap ,ct :copy<Space>tDiary<CR>
+
+"" feedSomeKeys_3.js
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+lazy fmaps -u='mail\.google\.com/mail' c / j k n p o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='mail\.google\.com/a/' c / j k n p o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='mail\.google\.com/mail/.*/[0-9a-f]+$' c / j,n k,p n,j p,k o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='www\.google\.co\.jp/reader' -events=vkeypress j k n p m s v A r S N P X O gh ga gs gt gu u / ? J K
+lazy fmaps -u='https?://www\.rememberthemilk\.com/home/' j k m i c t ? d F,f G,g S,s L,l Y,y H,h M,m <Del> <C-S-Left> <C-S-Right>
+lazy fmaps -u='http://code.google.com/p/vimperator-labs/issues/list' o j k
+lazy fmaps -u='http://code.google.com/p/vimperator-labs/issues/detail' u
+
+"command! lazy -nargs=+ autocmd VimperatorEnter .* <args>
+"command! lazyfmapsgmail -nargs=+ lazy fmaps -u 'https?://mail\.google\.com/mail' <args>
+"lazyfmapsgmail gi gs gt gd ga gc *a *n *r *u *s *t u k j o p n c / q ? x s e m ! # r a N ] [ z . I U S E GL
+"lazyfmapsgmail [,] ],[
+
+"" feedSomeKeys_2.js
+"autocmd LocationChange .* :fmapc
+" Gmail
+"autocmd LocationChange mail\.google\.com/mail :fmap! c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+"autocmd LocationChange mail\.google\.com/a :fmap! c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+" Google Reader
+"autocmd LocationChange www\.google\.co\.jp/reader :fmap! -vkey j k n p m s t v A r S N P X O gh ga gs gt gu u / ?
+"autocmd LocationChange www\.google\.com/reader :fmap! -vkey j k n p m s t v A r S N P X O gh ga gs gt gu u / ?
+
