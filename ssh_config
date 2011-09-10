@@ -1,0 +1,13 @@
+ServerAliveInterval 60
+
+Host cuusoo
+  HostName devl03.pfm.cuusoo.com
+  Port 22
+  User asano
+  IdentityFile ~/.ssh/cuusoo.rsa
+
+Host heteml
+  HostName ssh162.heteml.jp
+  Port 2222
+  User cybaron
+
