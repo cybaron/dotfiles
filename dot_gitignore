@@ -1,0 +1,8 @@
+## MAC OS
+.DS_Store
+
+## VIM
+*.swp
+
+## Rails3
+vendor/bundle
