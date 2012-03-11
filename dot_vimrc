@@ -41,6 +41,7 @@ set imdisable      " IMを無効化
 set nosmartindent  " スマートインデント
 set noautoindent   " オートインデント
 set cursorline     " カレントにカーソルライン表示 
+set backspace=indent,eol,start " BSでインデントや改行を削除できるように
 
 " .vimrcの編集と読込
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
