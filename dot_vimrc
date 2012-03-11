@@ -107,3 +107,6 @@ endif
   set statusline+=%V    " 画面上の何列目にカーソルがあるか
   set statusline+=\ \   " 空白スペース2個
   set statusline+=%P    " ファイル内の何％の位置にあるか
+
+" VimShell
+nnoremap <silent> vp :VimShellPop<CR>
