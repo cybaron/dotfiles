@@ -67,7 +67,7 @@ set clipboard+=autoselect
 set clipboard+=unnamed
 
 "Escの2回押しでハイライト消去
-set hlseach
+set hlsearch
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
 " neocomplcache
