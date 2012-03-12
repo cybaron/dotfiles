@@ -67,7 +67,8 @@ set clipboard+=autoselect
 set clipboard+=unnamed
 
 "Escの2回押しでハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+set hlseach
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
