@@ -64,7 +64,7 @@ noremap gk k
 
 " ビジュアルモードで選択したテキストを、クリップボードに設定
 set clipboard+=autoselect
-set clipboard+=unnamed
+set clipboard+=unnamedplus,unnamed
 
 "Escの2回押しでハイライト消去
 set hlsearch
