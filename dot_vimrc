@@ -111,3 +111,7 @@ endif
 
 " VimShell
 nnoremap <silent> vp :VimShellPop<CR>
+
+" CakePHP.vim
+let g:cakephp_enable_fix_mode = 1
+let g:cakephp_enable_auto_mode = 1
