@@ -2,7 +2,7 @@
 .DS_Store
 
 ## VIM
-*.swp
+.*.sw[a-z]
 
 ## Rails3
 vendor/bundle
