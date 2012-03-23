@@ -1,0 +1,118 @@
+# (C) makoto <makoto@2ch.to>
+######################################################################
+# 基本設定
+ServerRoot /etc/httpd
+PidFile run/httpd.pid
+
+User apache
+Group apache
+
+# 接続関係
+Timeout 3
+KeepAlive off
+KeepAliveTimeout 1
+MaxKeepAliveRequests 20
+#Listen 0.0.0.0:80
+Listen 127.0.0.1:8080
+
+# 起動設定
+<IfModule prefork.c>
+  StartServers       3
+  MinSpareServers    5
+  MaxSpareServers   10
+  MaxClients        100
+  MaxRequestsPerChild  0
+</IfModule>
+
+# 起動設定
+<IfModule worker.c>
+StartServers         2
+MaxClients         150
+MinSpareThreads     25
+MaxSpareThreads     75
+ThreadsPerChild     25
+MaxRequestsPerChild  0
+</IfModule>
+
+# その他
+ServerTokens Prod
+ServerSignature Off
+TraceEnable Off
+######################################################################
+# ディレクトリの設定
+AccessFileName .htaccess
+DocumentRoot /var/www/html/
+######################################################################
+# MIME/言語設定
+LoadModule mime_module       modules/mod_mime.so
+LoadModule mime_magic_module modules/mod_mime_magic.so
+TypesConfig /etc/mime.types
+MIMEMagicFile conf/magic
+DefaultType text/plain
+######################################################################
+# LOG設定
+ErrorLog logs/error_log
+LogLevel warn
+#LogLevel error
+#LoadModule log_config_module modules/mod_log_config.so
+#LogFormat "%h %v %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %X%D" combined
+#CustomLog logs/access_log combined env=!nolog
+######################################################################
+# php
+<IfModule prefork.c>
+ LoadModule php5_module modules/libphp5.so
+</IfModule>
+<IfModule worker.c>
+ LoadModule php5_module modules/libphp5-zts.so
+</IfModule>
+AddHandler php5-script .php
+######################################################################
+# server-status
+LoadModule status_module modules/mod_status.so
+ExtendedStatus On
+<Location /server-status>
+    SetHandler server-status
+</Location>
+#####################################################################
+#
+LoadModule dir_module modules/mod_dir.so
+DirectoryIndex index.php index.html
+#####################################################################
+#
+#LoadModule rewrite_module    modules/mod_rewrite.so
+#LoadModule auth_basic_module modules/mod_auth_basic.so
+#LoadModule authn_file_module modules/mod_authn_file.so
+#LoadModule authz_user_module modules/mod_authz_user.so
+<Directory /var/www/html>
+#  AllowOverride FileInfo Options AuthConfig
+  AllowOverride None
+  Options FollowSymLinks
+</Directory>
+#####################################################################
+# expiresの設定
+LoadModule expires_module modules/mod_expires.so
+ExpiresActive On
+#ExpiresActive Off
+ExpiresByType text/css "access plus 1 day"
+ExpiresByType application/x-javascript "access plus 1 days"
+ExpiresByType application/javascript "access plus 1 days"
+ExpiresByType text/javascript "access plus 1 days"
+ExpiresByType text/plain "access plus 1 days"
+ExpiresByType image/gif "access plus 1 days"
+ExpiresByType image/jpeg "access plus 1 days"
+ExpiresByType image/jpg "access plus 1 days"
+ExpiresByType image/png "access plus 1 days"
+ExpiresByType image/ico "access plus 1 days"
+ExpiresByType image/icon "access plus 1 days"
+ExpiresByType text/ico "access plus 1 days"
+ExpiresByType application/ico "access plus 1 days"
+ExpiresByType image/x-icon "access plus 1 days"
+#####################################################################
+# mod_extract_forwarded
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule extract_forwarded_module modules/mod_extract_forwarded.so
+MEForder refuse,accept
+MEFrefuse all
+MEFaccept 127.0.0.1
+MEFaddenv on
+MEFdebug off
