@@ -1,0 +1,51 @@
+######################################################################
+# makoto@2ch.to
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT DROP [0:0]
+######################################################################
+# ループバック/ICMP/確立済みの接続
+-A INPUT   -i lo   -j ACCEPT
+-A OUTPUT  -o lo   -j ACCEPT
+-A INPUT   -p icmp -j ACCEPT
+-A OUTPUT  -p icmp -j ACCEPT
+-A INPUT   -p ipv6 -j ACCEPT
+-A OUTPUT  -p ipv6 -j ACCEPT
+-A INPUT   -p ipv6-icmp -j ACCEPT
+-A OUTPUT  -p ipv6-icmp -j ACCEPT
+-A INPUT   -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A OUTPUT  -m state --state RELATED,ESTABLISHED -j ACCEPT
+######################################################################
+# OUTPUT
+-A OUTPUT -m state --state NEW -p tcp --dport ssh           -j ACCEPT
+-A OUTPUT -m state --state NEW -p tcp --dport smtp          -j ACCEPT
+-A OUTPUT -m state --state NEW -p tcp --dport domain        -j ACCEPT
+-A OUTPUT -m state --state NEW -p udp --dport domain        -j ACCEPT
+-A OUTPUT -m state --state NEW -p tcp --dport http          -j ACCEPT
+-A OUTPUT -m state --state NEW -p udp --dport ntp           -j ACCEPT
+-A OUTPUT -m state --state NEW -p tcp --dport https         -j ACCEPT
+-A OUTPUT -m state --state NEW -p tcp --dport mysql         -j ACCEPT
+#↓memcached
+#-A OUTPUT -m state --state NEW -p tcp --dport 11211         -j ACCEPT
+######################################################################
+# 公開ポート 必要なこだけコメントを外すこと
+#-A INPUT -m state --state NEW -p tcp --dport smtp          -j ACCEPT
+#-A INPUT -m state --state NEW -p tcp --dport domain        -j ACCEPT
+#-A INPUT -m state --state NEW -p udp --dport domain        -j ACCEPT
+ -A INPUT -m state --state NEW -p tcp --dport http          -j ACCEPT
+ -A INPUT -m state --state NEW -p tcp --dport https         -j ACCEPT
+#↓可能ならSAFTYを利用する
+ -A INPUT -m state --state NEW -p tcp --dport ssh    -j ACCEPT
+######################################################################
+# 信頼できるIP
+-N SAFETY
+-A SAFETY -m state --state NEW -p tcp --dport ssh           -j ACCEPT
+-A SAFETY -m state --state NEW -p tcp --dport smtp          -j ACCEPT
+-A SAFETY -m state --state NEW -p tcp --dport http          -j ACCEPT
+-A SAFETY -m state --state NEW -p tcp --dport https         -j ACCEPT
+-A SAFETY -m state --state NEW -p tcp --dport mysql         -j ACCEPT
+-A SAFETY -m state --state NEW -p tcp --dport 11211         -j ACCEPT
+-A SAFETY -m state --state NEW -p tcp --dport postgres      -j ACCEPT
+#-A INPUT -s 自分ちの固定IP -j SAFETY
+COMMIT
