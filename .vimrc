@@ -114,3 +114,10 @@ nnoremap <silent> vp :VimShellPop<CR>
 
 " CakePHP.vim
 let g:cakephp_enable_auto_mode = 1
+
+" :Csvhl n でn番目の要素をハイライト表示
+function! CSVH(x)
+  execute 'match Keyword /^\([^,]*,\)\{'.a:x.'}\zs[^,]*/'
+  execute 'normal ^'.a:x.'f,'
+endfunction
+command! -nargs=1 Csvhl :call CSVH(<args>)
