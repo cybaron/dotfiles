@@ -9,8 +9,8 @@ set columns=100
 "set guifont=Takaoゴシック:h14
 set guifont=Ricty:h14
 
-"colorscheme desert
-colorscheme h2u_black
+colorscheme desert
+"colorscheme h2u_black
 
 "日本語入力中のカーソルの色
 highlight Cursor guifg=NONE guibg=Green
