@@ -151,7 +151,7 @@ alias j="jobs -l"
 
 case "${OSTYPE}" in
 freebsd*|darwin*)
-  export PATH=${PATH}
+#  export PATH=${PATH}
   export MANPATH=${MANPATH}
 #  export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin
   export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
