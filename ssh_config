@@ -11,3 +11,7 @@ Host heteml
   Port 2222
   User cybaron
 
+Host sakura
+  HostName cybaron.sakura.ne.jp
+  Port 22
+  User cybaron
