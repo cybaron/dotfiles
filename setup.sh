@@ -7,3 +7,8 @@ do
     ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
+case "${OSTYPE}" in
+freebsd*|darwin*)
+  ln -s $HOME/dotfiles/.zshrc.mac $HOME/.zshrc.mac
+  ;;
+esac
