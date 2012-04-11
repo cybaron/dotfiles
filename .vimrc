@@ -109,6 +109,10 @@ endif
   set statusline+=\ \   " 空白スペース2個
   set statusline+=%P    " ファイル内の何％の位置にあるか
 
+" ref-vim
+let g:ref_phpmanual_path = $HOME . '/Dropbox/99_manual/php-chunked-xhtml'
+let g:ref_refe_cmd = $HOME . '/Dropbox/99_manual/ruby-refm-1.9.2-dynamic/refe-1_9_2'
+
 " VimShell
 nnoremap <silent> vp :VimShellPop<CR>
 
