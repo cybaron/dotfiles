@@ -1,4 +1,6 @@
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export CAKE_ENV=development
 
 alias ls="ls -G --color"

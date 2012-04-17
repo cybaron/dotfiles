@@ -153,10 +153,7 @@ case "${OSTYPE}" in
 freebsd*|darwin*)
 #  export PATH=${PATH}
   export MANPATH=${MANPATH}
-#  export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin
   export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-#  export PATH=/usr/local/share/npm/bin:$PATH
   export NODE_PATH=/usr/local/lib/node
   export SCREENDIR=~/tmp/screen
   alias ls="ls -G -w"
