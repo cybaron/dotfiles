@@ -10,3 +10,4 @@ vendor/bundle
 ## pathogen.vim untracked content 対策
 doc/tags
 doc/tags-ja
+autoload/proc.so
