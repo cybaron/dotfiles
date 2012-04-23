@@ -1,2 +1,3 @@
+alias git-log="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
 alias ls="ls -G --color"
 alias tmux="tmuxx"

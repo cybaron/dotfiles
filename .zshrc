@@ -171,7 +171,6 @@ alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
-alias git-log="git log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'"
 
 alias r="rails"
 
