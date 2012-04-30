@@ -224,7 +224,8 @@ case "${TERM}" in
 esac
 
 # autojump + z.sh
-[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
+#alias j="autojump"
+#[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
 _Z_CMD=j
 source ~/.zsh/z.sh
 precmd() {
