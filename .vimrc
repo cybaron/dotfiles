@@ -70,6 +70,9 @@ set clipboard+=unnamedplus,unnamed
 set hlsearch
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
+" vvで現在位置から行末まで選択(改行まで入らない)
+vnoremap v $h
+
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 30
