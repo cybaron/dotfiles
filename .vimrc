@@ -137,3 +137,9 @@ augroup rbsyntaxcheck
   autocmd!
   autocmd BufWrite *.rb w !ruby -c
 augroup END
+
+" テンプレート設定
+augroup templateload
+  autocmd!
+  autocmd BufNewFile *.html 0r ~/Dropbox/00_Public/91_development/skelton/skelton.html
+augroup END
