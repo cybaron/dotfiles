@@ -143,3 +143,7 @@ augroup templateload
   autocmd!
   autocmd BufNewFile *.html 0r ~/Dropbox/00_Public/91_development/skelton/skelton.html
 augroup END
+
+" vimfilerの設定
+let g:vimfiler_safe_mode_by_default = 0   " セーフモードを無効
+let g:vimfiler_as_default_explorer = 1    " デフォルトのファイラーをvimfiler
