@@ -125,3 +125,15 @@ function! CSVH(x)
   execute 'normal ^'.a:x.'f,'
 endfunction
 command! -nargs=1 Csvhl :call CSVH(<args>)
+
+" PHP文法チェック
+augroup phpsyntaxcheck
+  autocmd!
+  autocmd BufWrite *.php w !php -l
+augroup END
+
+" Ruby文法チェック
+augroup rbsyntaxcheck
+  autocmd!
+  autocmd BufWrite *.rb w !ruby -c
+augroup END
