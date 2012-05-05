@@ -11,10 +11,6 @@ filetype plugin on
 filetype on
 syntax on
 
-autocmd!
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-
 filetype plugin indent on
 syntax on
 
@@ -145,6 +141,13 @@ augroup END
 augroup templateload
   autocmd!
   autocmd BufNewFile *.html 0r ~/Dropbox/00_Public/91_development/skelton/skelton.html
+augroup END
+
+" カレントバッファ以外のカーソルライン非表示
+augroup cursolvisual
+  autocmd!
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 augroup END
 
 " vimfilerの設定
