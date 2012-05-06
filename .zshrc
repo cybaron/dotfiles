@@ -235,6 +235,7 @@ precmd() {
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+[ -f ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
 [ -f ${HOME}/.zshrc.mac ] && source ${HOME}/.zshrc.mac
 [ -f ${HOME}/.zshrc.alias ] && source ${HOME}/.zshrc.alias
 
