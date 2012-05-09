@@ -153,3 +153,6 @@ augroup END
 " vimfilerの設定
 let g:vimfiler_safe_mode_by_default = 0   " セーフモードを無効
 let g:vimfiler_as_default_explorer = 1    " デフォルトのファイラーをvimfiler
+
+" yankring.vim Undefined variableエラー対処
+let g:yankring_manual_clipboard_check = 0
