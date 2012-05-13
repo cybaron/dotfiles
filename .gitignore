@@ -6,6 +6,7 @@
 
 ## Rails3
 vendor/bundle
+.rvmrc
 
 ## pathogen.vim untracked content 対策
 doc/tags
