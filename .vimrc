@@ -156,3 +156,8 @@ let g:vimfiler_as_default_explorer = 1    " デフォルトのファイラーを
 
 " yankring.vim Undefined variableエラー対処
 let g:yankring_manual_clipboard_check = 0
+
+" 行末の空白文字を可視化
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+autocmd WinEnter * match WhitespaceEOL /\s\+$/
