@@ -3,6 +3,7 @@
 
 ## VIM
 .*.sw[a-z]
+tags
 
 ## Rails3
 vendor/bundle
