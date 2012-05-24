@@ -77,7 +77,7 @@ vnoremap v $h
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 30
+let g:neocomplcache_max_list = 20
 let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_min_syntax_length = 4
 let g:neocomplcache_enable_smart_case = 1
