@@ -36,7 +36,7 @@ set ruler          " ルーラー表示
 set imdisable      " IMを無効化
 set nosmartindent  " スマートインデント
 set noautoindent   " オートインデント
-set cursorline     " カレントにカーソルライン表示 
+set cursorline     " カレントにカーソルライン表示
 set backspace=indent,eol,start " BSでインデントや改行を削除できるように
 
 " .vimrcの編集と読込
@@ -53,8 +53,14 @@ vnoremap gc :<C-u>normal gc<Enter>
 onoremap gc :<C-u>normal gc<Enter>
 
 " ウィンドウの折り返し文字が長いときの移動
-noremap j gj
-noremap k gk
+"noremap j gj
+"noremap k gk
+nnoremap j gj
+onoremap j gj
+xnoremap j gj
+nnoremap k gk
+onoremap k gk
+xnoremap k gk
 noremap gj j
 noremap gk k
 
@@ -72,10 +78,19 @@ vnoremap v $h
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 30
-let g:neocomplcache_auto_completion_start_length = 4
+let g:neocomplcache_auto_completion_start_length = 2
 let g:neocomplcache_min_syntax_length = 4
 let g:neocomplcache_enable_smart_case = 1
 autocmd FileType text,txt :NeoComplCacheLock
+if !exists('g:neocomplcache_same_filetype_lists')
+  let g:neocomplcache_same_filetype_lists = {}
+endif
+let g:neocomplcache_same_filetype_lists['ctp'] = 'php'
+let g:neocomplcache_dictionary_filetype_lists = {
+  \ 'default' : '',
+  \ 'php' : $HOME . '/.vim/dict/PHP.dict',
+  \ 'ctp' : $HOME . '/.vim/dict/PHP.dict',
+  \ }
 
 " MacOS X Lion 対策
 let $PYTHON_DLL="/System/Library/Frameworks/Python.framework/Versions/2.6/Python"
