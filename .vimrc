@@ -176,3 +176,11 @@ let g:yankring_manual_clipboard_check = 0
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
+
+" smartchr.vim
+augroup smartchrphp
+  autocmd!
+  autocmd FileType php inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
+  autocmd FileType php inoremap <buffer> <expr> + smartchr#loop(' + ', '+')
+  autocmd FileType php inoremap <buffer> <expr> - smartchr#loop('->', ' - ', '-')
+augroup END
