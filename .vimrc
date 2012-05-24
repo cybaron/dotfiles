@@ -91,6 +91,9 @@ let g:neocomplcache_dictionary_filetype_lists = {
   \ 'php' : $HOME . '/.vim/dict/PHP.dict',
   \ 'ctp' : $HOME . '/.vim/dict/PHP.dict',
   \ }
+let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
+imap <C-k> <plug>(neocomplcache_snippets_expand)
+smap <C-k> <plug>(neocomplcache_snippets_expand)
 
 " MacOS X Lion 対策
 let $PYTHON_DLL="/System/Library/Frameworks/Python.framework/Versions/2.6/Python"
