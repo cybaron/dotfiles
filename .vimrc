@@ -183,7 +183,7 @@ autocmd WinEnter * match WhitespaceEOL /\s\+$/
 " smartchr.vim
 augroup smartchrphp
   autocmd!
-  autocmd FileType php inoremap <buffer> <expr> = smartchr#loop(' = ', ' == ', '=')
+  autocmd FileType php inoremap <buffer> <expr> = smartchr#loop('=> ', ' = ', ' == ', '=')
   autocmd FileType php inoremap <buffer> <expr> + smartchr#loop(' + ', '+')
   autocmd FileType php inoremap <buffer> <expr> - smartchr#loop('->', ' - ', '-')
 augroup END
