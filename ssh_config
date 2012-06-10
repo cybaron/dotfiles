@@ -15,3 +15,8 @@ Host sakura
   HostName cybaron.sakura.ne.jp
   Port 22
   User cybaron
+
+Host vps
+  HostName 49.212.162.212
+  Port 22
+  User kazuki
