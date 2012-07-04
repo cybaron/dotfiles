@@ -990,6 +990,8 @@ default_socket_timeout = 60
 ;extension=php_xmlrpc.dll
 ;extension=php_xsl.dll
 ;extension=php_zip.dll
+extension="/usr/local/Cellar/php53-mcrypt/5.3.13/mcrypt.so"
+extension="/usr/local/Cellar/php53-imagick/3.0.1/imagick.so"
 
 ;;;;;;;;;;;;;;;;;;;
 ; Module Settings ;
