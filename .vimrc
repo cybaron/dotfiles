@@ -64,6 +64,10 @@ xnoremap k gk
 noremap gj j
 noremap gk k
 
+" p,Pで最後にyankしたテキストを貼り付ける
+nnoremap p "0p
+nnoremap P "0P
+
 " ビジュアルモードで選択したテキストを、クリップボードに設定
 set clipboard+=autoselect
 set clipboard+=unnamedplus,unnamed
