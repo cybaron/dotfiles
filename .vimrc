@@ -181,9 +181,14 @@ match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
 " smartchr.vim
+" =の場合、単純な代入や比較演算子として入力する場合は前後にスペースをいれる。
+" 複合演算代入としての入力の場合は、直前のスペースを削除して=を入力
 augroup smartchrphp
   autocmd!
-  autocmd FileType php inoremap <buffer> <expr> = smartchr#loop('=> ', ' = ', ' == ', '=')
+"  autocmd FileType php inoremap <buffer> <expr> = smartchr#loop('=> ', ' = ', ' == ', '=')
+  autocmd FileType php inoremap <expr> = search('\(&\<Bar><Bar>\<Bar>+\<Bar>-\<Bar>/\<Bar>>\<Bar><\) \%#', 'bcn')?'<bs>= '
+  \ : search('\(*\<Bar>!\)\%#', 'bcn') ? '= '
+  \ : smartchr#one_of('=>', ' = ', ' == ', '=')
   autocmd FileType php inoremap <buffer> <expr> + smartchr#loop(' + ', '+')
   autocmd FileType php inoremap <buffer> <expr> - smartchr#loop('->', ' - ', '-')
 augroup END
