@@ -4,3 +4,4 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export CAKE_ENV=development
 
 alias ls="ls -G --color"
+alias crontab="EDITOR=\"$HOME/bin/vi\" crontab"
