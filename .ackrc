@@ -2,4 +2,4 @@
 --color
 --pager=less -r -e
 --type-add=perl=.tmpl,.t
---type-set=cake=.ctp
+--type-set=cake=.ctp,.js
