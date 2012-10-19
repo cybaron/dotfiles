@@ -1,18 +1,6 @@
-" pathogenでftdetectなどをloadさせるために一度ファイルタイプ判定をoff
-filetype off
-syntax off
-filetype indent off
-" pathogen.vimによってbundle配下のpluginをpathに加える
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-set helpfile=$VIMRUNTIME/doc/help.txt
-" ファイルタイプ判定をon
-filetype plugin on
-filetype on
+call pathogen#infect()
 syntax on
-
 filetype plugin indent on
-syntax on
 
 " デザイン系
 colorscheme desert
@@ -38,6 +26,9 @@ set nosmartindent  " スマートインデント
 set noautoindent   " オートインデント
 set cursorline     " カレントにカーソルライン表示
 set backspace=indent,eol,start " BSでインデントや改行を削除できるように
+
+set encoding=utf8
+set fileencodings=iso-2022-jp,sjis,euc-jp,utf8
 
 " .vimrcの編集と読込
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
