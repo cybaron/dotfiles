@@ -1,0 +1,11 @@
+[user]
+	email = cybaron@gmail.com
+	name = kazuki.asano
+[core]
+	excludesfile = ~/.gitignore
+[color]
+	branch = auto
+	status = auto
+	diff = auto
+[push]
+	default = tracking
