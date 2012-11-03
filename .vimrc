@@ -27,8 +27,8 @@ set noautoindent   " オートインデント
 set cursorline     " カレントにカーソルライン表示
 set backspace=indent,eol,start " BSでインデントや改行を削除できるように
 
-set encoding=utf8
-set fileencodings=iso-2022-jp,sjis,euc-jp,utf8
+"set encoding=utf8
+"set fileencodings=iso-2022-jp,sjis,euc-jp,utf8
 
 " .vimrcの編集と読込
 nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
