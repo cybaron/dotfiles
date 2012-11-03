@@ -990,7 +990,7 @@ default_socket_timeout = 60
 ;extension=php_xmlrpc.dll
 ;extension=php_xsl.dll
 ;extension=php_zip.dll
-extension="/usr/local/Cellar/php53-mcrypt/5.3.13/mcrypt.so"
+;extension="/usr/local/Cellar/php53-mcrypt/5.3.13/mcrypt.so"
 extension="/usr/local/Cellar/php53-imagick/3.0.1/imagick.so"
 
 ;;;;;;;;;;;;;;;;;;;
@@ -1915,12 +1915,12 @@ ldap.max_links = -1
 ; End:
 
 [apc]
-extension="/usr/local/Cellar/apc/3.1.9/apc.so"
-apc.enabled=1
-apc.shm_segments=1
-apc.shm_size=64M
-apc.ttl=7200
-apc.user_ttl=7200
-apc.num_files_hint=1024
-apc.mmap_file_mask=/tmp/apc.XXXXXX
-apc.enable_cli=1
+;extension="/usr/local/Cellar/apc/3.1.9/apc.so"
+;apc.enabled=1
+;apc.shm_segments=1
+;apc.shm_size=64M
+;apc.ttl=7200
+;apc.user_ttl=7200
+;apc.num_files_hint=1024
+;apc.mmap_file_mask=/tmp/apc.XXXXXX
+;apc.enable_cli=1
