@@ -6,17 +6,7 @@ Host cuusoo
   User asano
   IdentityFile ~/.ssh/cuusoo.rsa
 
-Host heteml
-  HostName ssh162.heteml.jp
-  Port 2222
-  User cybaron
-
 Host sakura
   HostName cybaron.sakura.ne.jp
   Port 22
   User cybaron
-
-Host vps
-  HostName 49.212.162.212
-  Port 22
-  User kazuki
